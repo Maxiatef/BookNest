@@ -1,0 +1,51 @@
+.container {
+  margin-top: 3rem;
+  background-color: #f0e4d963;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  padding: 3rem;
+  border-radius: 30px;
+  width: 35%;
+}
+
+.title {
+  font-size: 55px;
+  color: #a9522a;
+  margin-bottom: 5px;
+}
+
+.new-login-inputs {
+  margin-bottom: 30px; /* Increased margin */
+}
+
+.form-control {
+  width: 270px;
+  padding: 14px; /* Increased padding */
+  margin-bottom: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  height: 45px;
+  font-size: 16px;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 10px;
+
+  padding: 10px 40px; /* Increased padding */
+  background-color: #a9522a;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #662d13;
+}

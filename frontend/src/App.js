@@ -5,19 +5,13 @@ import BookList from './components/BookList';
 import BookSearch from './components/BookSearch';
 import BookForm from './components/BookForm';
 import BookDetails from './components/BookDetails';
+import Navbar from './navbar/navbar';
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <div className="App">
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/search">Search</Link></li>
-            <li><Link to="/add">Add Book</Link></li>
-          </ul>
-        </nav>
-
         <Routes>
           <Route path="/" element={<BookList />} />
           <Route path="/search" element={<BookSearch />} />
