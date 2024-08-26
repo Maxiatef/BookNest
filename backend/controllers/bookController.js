@@ -67,22 +67,6 @@ exports.updateBook = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
-//returnBook using post method
-exports.returnBook = async (req, res) => {
-    const { id } = req.params;
-    const { returnedDate } = req.body;
-    try {
-        const book = await Book.findById(id);
-        book.borrowingHistory[book.borrowingHistory.length - 1].returnedDate = returnedDate;
-        await book.save();
-        res.json(book);
-    }
-    catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
 //delete book using delete method
 exports.deleteBook = async (req, res) => {
     const { id } = req.params;
@@ -94,6 +78,62 @@ exports.deleteBook = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+//-------------------------------------------------------------------------------------------
+
+//borrow book using post method
+exports.borrowBook = async (req, res) => {
+    const { id } = req.params;  // Get book ID from the request parameters
+    const { borrowedDate } = req.body;  // Get the borrowedDate from the request body
+
+    try {
+        const book = await Book.findById(id);  // Find the book by its ID
+        if (!book) {  // Check if the book exists
+            return res.status(404).json({ message: 'Book not found' });
+        }
+
+        book.borrowingHistory.push({ borrowedDate });  // Add the borrowed date to the borrowing history
+        book.mybook = 1;  // Set the mybook attribute to 1
+        await book.save();  // Save the updated book document to the database
+        res.json(book);  // Return the updated book document in the response
+    } catch (error) {
+        res.status(500).json({ message: error.message });  // Handle any errors and return a 500 status
+    }
+};
+
+
+//returnBook using post method
+exports.returnBook = async (req, res) => {
+    const { id } = req.params;
+    const { returnedDate } = req.body;
+
+    try {
+        const book = await Book.findById(id);
+        if (!book) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+        // Update the latest borrowing record to include the return date
+        const latestBorrow = book.borrowingHistory[book.borrowingHistory.length - 1];
+        latestBorrow.returnedDate = returnedDate;
+        // Set the mybook attribute to 0 to indicate it's no longer borrowed
+        book.mybook = 0;
+        await book.save();  // Save the updated book document
+        res.json(book);  // Return the updated book document
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+//get the books that mybook=1
+exports.getMyBooks = async (req, res) => {
+    try {
+        const books = await Book.find({ mybook: 1 });
+        res.json(books);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 
 //filter by category
 // http://localhost:5001/api/books?category=Science%20Fiction

@@ -6,9 +6,11 @@ const bookController = require('../controllers/bookController');
 router.get('/', bookController.getAllBooks);
 router.get('/book/search', bookController.searchBooks);
 router.get('/:id', bookController.getBookByID);
+router.get('/get/my/books', bookController.getMyBooks);
 
 
 router.post('/', bookController.addBook);
+router.post('/:id/borrow/book', bookController.borrowBook);
 router.post('/:id/return', bookController.returnBook);
 
 router.patch('/:id', bookController.updateBook);

@@ -1,34 +1,27 @@
-// src/components/BookList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './BookList.css';
+// import './Mybooks.css'; // Make sure this file contains styles for book cards
 
-const BookList = () => {
+const Mybooks = () => {
     const [books, setBooks] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchBooks = async () => {
+        const fetchMyBooks = async () => {
             try {
-                const res = await axios.get('http://localhost:5001/api/books');
+                const res = await axios.get('http://localhost:5001/api/books/get/my/books');
                 setBooks(res.data);
-                setLoading(false);
             } catch (err) {
-                setError('Error fetching books');
-                setLoading(false);
+                console.error('Error fetching books:', err.response ? err.response.data : err.message);
             }
         };
-        fetchBooks();
-    }, []);
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
+        fetchMyBooks();
+    }, []);
 
     return (
         <div>
-            <h2 className="booklist">Book List</h2>
+            <h2 className="booklist">My Books</h2>
             <div className="listbody">
                 {books.map((book) => (
                     <Link
@@ -64,4 +57,4 @@ const BookList = () => {
     );
 };
 
-export default BookList;
+export default Mybooks;

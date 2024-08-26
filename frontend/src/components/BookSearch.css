@@ -4,8 +4,9 @@
   background: #ffffff;
   font-family: 'Open Sans', sans-serif;
   margin: 0;
-  height: 100vh; /* Ensure body takes up full height */
-  display: flex;
+  height: 100vh;
+  /* Ensure body takes up full height */
+
   /*justify-content: center;
   align-items: center;*/
 }
@@ -16,11 +17,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .searchTerm {
   width: 20vw;
-
   border: 1px solid #a9522a;
   border-right: none;
   padding: 5px;
@@ -29,8 +30,13 @@
   border-bottom-left-radius: 50px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  justify-content: center;
+  align-items: center;
   outline: none;
   color: #9dbfaf;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 565px;
 }
 
 .searchTerm:focus {
@@ -51,9 +57,11 @@
   cursor: pointer;
   font-size: 20px;
 }
+
 .searchButton:hover {
   background-color: #5b2912;
 }
+
 /*Resize the wrap to see the search bar change!*/
 .wrap {
   width: 30%;

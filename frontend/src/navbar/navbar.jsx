@@ -36,6 +36,15 @@ export default function Navbar() {
             </li>
             <li>
               <Link
+                to="/mybooks"
+                className="nav-menu"
+                style={{ textDecoration: 'none' }}
+              >
+                My Books
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/add"
                 className="nav-menu"
                 style={{ textDecoration: 'none' }}
