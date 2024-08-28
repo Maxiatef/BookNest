@@ -64,7 +64,7 @@ const BookForm = () => {
     <div className="formbody">
       <div className="container mt-4">
         <h1 className="display-4 text-center">
-          <i className="fas fa-book-open text-primary"></i> Add
+          <i className="fas fa-book-open text-primary"></i> Request
           <span className="title">Book</span>
         </h1>
         <form id="book-form" onSubmit={handleSubmit}>
@@ -104,43 +104,10 @@ const BookForm = () => {
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="isbn">ISBN#</label>
-            <input
-              type="text"
-              id="isbn"
-              name="isbn"
-              className="form-control"
-              value={book.isbn}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="borrowedDate">Borrowed Date</label>
-            <input
-              type="date"
-              id="borrowedDate"
-              name="borrowedDate"
-              className="form-control"
-              value={book.borrowingHistory[0].borrowedDate}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="returnedDate">Returned Date</label>
-            <input
-              type="date"
-              id="returnedDate"
-              name="returnedDate"
-              className="form-control"
-              value={book.borrowingHistory[0].returnedDate}
-              onChange={handleChange}
-            />
-          </div>
+
           <input
             type="submit"
-            value="Add Book"
+            value="Request Book"
             className="btn btn-primary btn-block"
           />
         </form>

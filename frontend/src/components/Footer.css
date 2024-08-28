@@ -1,0 +1,76 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 100px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-logo p {
+  color: #a9522a;
+  font-size: 46px;
+  font-weight: 700;
+}
+.footer-links {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+  color: #a9522a;
+  font-size: 20px;
+}
+.footer-links li {
+  cursor: pointer;
+}
+.footer-social-icon {
+  display: flex;
+  gap: 20px;
+}
+.footer-icons-container {
+  padding: 10px;
+  padding-bottom: 6px;
+  background: #aaff56;
+  border: 1px solid #66b219;
+  width: 2rem;
+  height: 2rem;
+}
+.footer-copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 30px;
+  color: #a9522a;
+  font-size: 20px;
+}
+.footer-copyright hr {
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  height: 3px;
+  background: #a9522a;
+}
+.footer-icons-container .insta {
+  width: 5rem;
+
+  padding-bottom: 10rem;
+  padding-top: -10rem;
+}
+.footer-icons-container .fb {
+  width: 3rem;
+  padding-bottom: 10rem;
+  padding-top: -10rem;
+}
+.footer-icons-container .tt {
+  width: 5rem;
+  padding-bottom: 10rem;
+  padding-top: -10rem;
+}
+.footer-logo img {
+  width: 4rem;
+}
