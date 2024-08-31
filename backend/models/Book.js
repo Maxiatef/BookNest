@@ -19,18 +19,42 @@ module.exports = mongoose.model('Book', BookSchema);
 /*
 
 {
-    "title": "The Hitchhiker's Guide to the Galaxy",
-    "author": "Douglas Adams",
-    "categories": ["Science Fiction", "Comedy", "Adventure"],
-    "cover": "https://images-na.ssl-images-amazon.com/images/I/51J7-1e6-PL._SX331_BO1,204,203,200_.jpg",
-    "mybook": true,
-    "isbn": "9780345391803",
-    "borrowingHistory": [
-        {
-            "borrowedDate": "2021-05-10T00:00:00.000Z",
-            "returnedDate": "2021-05-20T00:00:00.000Z"
-        }
-    ]
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "categories": ["Fiction", "Classic"],
+    "cover": "https://m.media-amazon.com/images/I/81QuEGw8VPL._AC_UF1000,1000_QL80_.jpg",
+    "isbn": "9780743273565",
+    "borrowingHistory": []
+}
+
+{
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "categories": ["Fiction", "Classic"],
+    "isbn": "9780316769488",
+    "borrowingHistory": []
+}
+
+{
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "categories": ["Fiction", "Classic"],
+    "isbn": "9780060935467",
+    "borrowingHistory": []
+}
+
+{
+    "title": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "categories": ["Fiction", "Fantasy"],
+    "isbn": "9780618640157",
+    "borrowingHistory": []
+}
+
+{
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "categories": ["Fiction", "Fantasy
 }
 
 */

@@ -49,7 +49,7 @@ export default function Navbar() {
                 className="nav-menu"
                 style={{ textDecoration: 'none' }}
               >
-                Add Book
+                Request
               </Link>
             </li>
           </ul>

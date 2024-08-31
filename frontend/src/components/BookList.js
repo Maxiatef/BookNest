@@ -6,6 +6,8 @@ import './BookList.css';
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [booksPerPage] = useState(15); // Number of books per page
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -22,6 +24,24 @@ const BookList = () => {
     };
     fetchBooks();
   }, []);
+
+  // Calculate the current books to display based on the current page
+  const indexOfLastBook = currentPage * booksPerPage;
+  const indexOfFirstBook = indexOfLastBook - booksPerPage;
+  const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
+  // Handle page change with next and previous buttons
+  const nextPage = () => {
+    if (currentPage < Math.ceil(books.length / booksPerPage)) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -41,7 +61,7 @@ const BookList = () => {
             </div>
             <p className="fav1">A Cozy Corner</p>
             <p className="fav">For All Your Favorite Reads!</p>
-          </div>{' '}
+          </div>
         </div>
         <div className="hero-right">
           <img
@@ -56,7 +76,7 @@ const BookList = () => {
       <div>
         <h2 className="booklist">Book List</h2>
         <div className="listbody">
-          {books.map((book) => (
+          {currentBooks.map((book) => (
             <Link
               to={`/book/${book._id}`}
               style={{ textDecoration: 'none' }}
@@ -86,6 +106,20 @@ const BookList = () => {
             </Link>
           ))}
         </div>
+      </div>
+      <div className="pagination">
+        <button onClick={prevPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>
+          Page {currentPage} of {Math.ceil(books.length / booksPerPage)}
+        </span>
+        <button
+          onClick={nextPage}
+          disabled={currentPage === Math.ceil(books.length / booksPerPage)}
+        >
+          Next
+        </button>
       </div>
     </>
   );

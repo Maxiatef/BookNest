@@ -76,6 +76,7 @@ main {
   background-color: #fff;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   max-height: 400px;
+  margin: 10px;
 
   .book-card__cover {
     position: relative;
@@ -218,4 +219,19 @@ main {
   height: 3px;
   background: #a9522a;
   margin-left: 150px;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.pagination button{
+  padding: 10px 20px;
+  border: none;
+  background-color: #a9522a;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
